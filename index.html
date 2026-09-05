@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Curriculum Vitae - Zabeeh Ullah, BS Computer Science Student (5th Sem) & Web Developer.">
+  <title>Zabeeh Ullah — Curriculum Vitae</title>
+
+  <!-- Google Fonts: Playfair Display (Headings) & DM Sans (Body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       DESIGN SYSTEM & THEME TOKENS
+       Concept: Digital CV / Resume Layout
+       Palette: Warm White (#FAFAF7), Deep Slate (#1F2937), Steel Blue (#4A6FA5)
+       ========================================================================== */
+    :root {
+      --bg-base: #FAFAF7;
+      --bg-sidebar: #F0EDE6;
+      --border-sidebar: #E5E2DA;
+      --text-main: #1F2937;
+      --text-muted: #4B5563;
+      --accent: #4A6FA5;
+      --accent-light: rgba(74, 111, 165, 0.12);
+      --font-heading: 'Playfair Display', serif;
+      --font-body: 'DM Sans', sans-serif;
+      --border-color: #E5E7EB;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      line-height: 1.65;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: var(--font-heading);
+      color: var(--text-main);
+      line-height: 1.25;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+
+    a:hover {
+      color: #2F4D7B;
+    }
+
+    /* Print-ready Layout Wrap */
+    .cv-layout-wrapper {
+      display: flex;
+      min-height: 100vh;
+      max-width: 1180px;
+      margin: 0 auto;
+      background-color: var(--bg-base);
+      box-shadow: 0 0 35px rgba(0, 0, 0, 0.03);
+    }
+
+    /* ==========================================================================
+       LEFT SIDEBAR (32% Width)
+       ========================================================================== */
+    .cv-sidebar {
+      width: 32%;
+      background-color: var(--bg-sidebar);
+      padding: 3.5rem 2rem;
+      border-right: 1px solid var(--border-sidebar);
+      display: flex;
+      flex-direction: column;
+      gap: 2.25rem;
+      animation: slideInLeft 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes slideInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    /* Rectangular Profile Photo Container & Animation */
+    .sidebar-photo-container {
+      text-align: center;
+    }
+
+    .sidebar-photo-wrapper {
+      width: 140px;
+      height: 175px;
+      margin: 0 auto 1.25rem auto;
+      border-radius: 12px;
+      border: 2px solid var(--accent);
+      padding: 4px;
+      background-color: var(--bg-base);
+      overflow: hidden;
+    }
+
+    .sidebar-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 8px;
+      animation: photoFocus 0.8s ease-out forwards;
+    }
+
+    @keyframes photoFocus {
+      from { filter: blur(4px); }
+      to { filter: blur(0); }
+    }
+
+    .sidebar-name {
+      font-size: 1.85rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 0.25rem;
+      text-align: center;
+    }
+
+    .sidebar-title {
+      font-size: 0.825rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    .sidebar-divider {
+      height: 1px;
+      background-color: var(--border-sidebar);
+      width: 100%;
+    }
+
+    .sidebar-heading {
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-main);
+      margin-bottom: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .sidebar-heading::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background-color: var(--border-sidebar);
+    }
+
+    .sidebar-contact-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+      font-size: 0.925rem;
+      color: var(--text-muted);
+    }
+
+    .sidebar-contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      word-break: break-word;
+    }
+
+    .sidebar-icon {
+      color: var(--accent);
+      flex-shrink: 0;
+      font-size: 0.95rem;
+    }
+
+    .sidebar-lang-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      font-size: 0.925rem;
+    }
+
+    .sidebar-lang-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .sidebar-lang-name {
+      color: var(--text-main);
+      font-weight: 500;
+    }
+
+    .sidebar-lang-level {
+      font-size: 0.825rem;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    .sidebar-tags-flex {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+
+    .sidebar-tag {
+      background-color: rgba(255, 255, 255, 0.7);
+      border: 1px solid var(--border-sidebar);
+      padding: 0.25rem 0.65rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      color: var(--text-main);
+    }
+
+    .sidebar-tag.tag-advanced {
+      border-color: rgba(74, 111, 165, 0.4);
+      background-color: rgba(74, 111, 165, 0.08);
+    }
+
+    .sidebar-tag span {
+      font-style: italic;
+      font-size: 0.775rem;
+      color: var(--accent);
+      margin-left: 0.2rem;
+      font-weight: 500;
+    }
+
+    .sidebar-bullets-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      font-size: 0.925rem;
+      color: var(--text-muted);
+    }
+
+    .sidebar-bullets-list li {
+      position: relative;
+      padding-left: 1.1rem;
+    }
+
+    .sidebar-bullets-list li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: bold;
+    }
+
+    .sidebar-nav-dots {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      margin-top: 1rem;
+    }
+
+    .nav-dot-link {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.825rem;
+      color: var(--text-muted);
+      transition: color 0.2s ease;
+    }
+
+    .nav-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      border: 1.5px solid var(--accent);
+      background-color: transparent;
+      transition: background-color 0.25s ease, transform 0.25s ease;
+    }
+
+    .nav-dot-link:hover .nav-dot,
+    .nav-dot-link.active .nav-dot {
+      background-color: var(--accent);
+      transform: scale(1.25);
+    }
+
+    .nav-dot-link:hover, .nav-dot-link.active {
+      color: var(--text-main);
+      font-weight: 500;
+    }
+
+    /* ==========================================================================
+       RIGHT MAIN CONTENT (68% Width)
+       ========================================================================== */
+    .cv-main {
+      width: 68%;
+      padding: 3.5rem 3.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+    }
+
+    .main-section-title {
+      font-size: 1.65rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border-color);
+      position: relative;
+    }
+
+    .main-section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 60px;
+      height: 2px;
+      background-color: var(--accent);
+    }
+
+    .summary-paragraph {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--text-muted);
+    }
+
+    .services-definition-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.75rem;
+    }
+
+    .service-def-item {
+      position: relative;
+      padding: 1.25rem;
+      background-color: #FFFFFF;
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      transition: border-color 0.25s ease;
+    }
+
+    .service-def-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      background-color: var(--accent);
+      transition: width 0.25s ease;
+    }
+
+    .service-def-item:hover::before {
+      width: 3px;
+    }
+
+    .service-def-item:hover {
+      border-color: #D1D5DB;
+    }
+
+    .service-def-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 0.4rem;
+    }
+
+    .service-def-desc {
+      font-size: 0.925rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    /* Education Timeline & Semester GPA Grid */
+    .timeline-list {
+      position: relative;
+      border-left: 1.5px solid var(--border-color);
+      padding-left: 2rem;
+      margin-left: 0.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2.25rem;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding: 0.5rem 0 0.5rem 0.5rem;
+      transition: padding-left 0.25s ease;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -2rem;
+      width: 0;
+      height: 100%;
+      background-color: var(--accent);
+      transition: width 0.25s ease;
+    }
+
+    .timeline-item:hover::before {
+      width: 3px;
+    }
+
+    .timeline-dot-marker {
+      position: absolute;
+      left: -2.4rem;
+      top: 0.8rem;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: var(--accent);
+      border: 2px solid var(--bg-base);
+    }
+
+    .timeline-degree-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 0.2rem;
+    }
+
+    .timeline-meta-line {
+      font-size: 0.95rem;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+
+    .gpa-breakdown-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    .gpa-card {
+      background-color: #FFFFFF;
+      border: 1px solid var(--border-color);
+      padding: 0.75rem 0.9rem;
+      border-radius: 4px;
+      text-align: center;
+    }
+
+    .gpa-sem-title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.25rem;
+    }
+
+    .gpa-val {
+      font-size: 0.925rem;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .gpa-val span {
+      color: var(--accent);
+    }
+
+    .interests-text {
+      font-size: 1.025rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .contact-minimal-block {
+      background-color: #FFFFFF;
+      border: 1px solid var(--border-color);
+      padding: 1.75rem 2rem;
+      border-radius: 4px;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .contact-typographic-link {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--text-main);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      width: fit-content;
+      border-bottom: 1px solid transparent;
+    }
+
+    .contact-typographic-link:hover {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    .fade-up-section {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .fade-up-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 850px) {
+      .cv-layout-wrapper {
+        flex-direction: column;
+      }
+
+      .cv-sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid var(--border-sidebar);
+        padding: 2.5rem 1.5rem;
+      }
+
+      .cv-main {
+        width: 100%;
+        padding: 2.5rem 1.5rem;
+        gap: 2.5rem;
+      }
+
+      .sidebar-nav-dots {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cv-layout-wrapper">
+
+    <!-- ==========================================
+         LEFT SIDEBAR (32%)
+         ========================================== -->
+    <aside class="cv-sidebar" id="sidebar">
+      
+      <!-- Photo (Rectangular) & Header -->
+      <div class="sidebar-photo-container">
+        <div class="sidebar-photo-wrapper">
+          <!-- 
+            RECTANGULAR PROFILE PHOTO:
+            Replace the 'src' value in the <img> tag below with your photo path (e.g. src="assets/profile.jpg")
+          -->
+          <img src="assets/profile.jpg" alt="Zabeeh Ullah" class="sidebar-photo" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Zabeeh+Ullah&background=4A6FA5&color=fff&size=175';">
+        </div>
+        <h1 class="sidebar-name">Zabeeh Ullah</h1>
+        <div class="sidebar-title">BS CS Student &bull; 5th Semester</div>
+      </div>
+
+      <div class="sidebar-divider"></div>
+
+      <!-- Contact Info -->
+      <div>
+        <div class="sidebar-heading">Contact</div>
+        <ul class="sidebar-contact-list">
+          <li class="sidebar-contact-item">
+            <span class="sidebar-icon">📍</span>
+            <span>Charsadda, KP, Pakistan</span>
+          </li>
+          <li class="sidebar-contact-item">
+            <span class="sidebar-icon">📞</span>
+            <a href="tel:+923070509981">+92 307 050 9981</a>
+          </li>
+          <li class="sidebar-contact-item">
+            <span class="sidebar-icon">✉️</span>
+            <a href="mailto:zabeehullah2005@gmail.com">zabeehullah2005@gmail.com</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Spoken Languages -->
+      <div>
+        <div class="sidebar-heading">Languages</div>
+        <ul class="sidebar-lang-list">
+          <li class="sidebar-lang-item">
+            <span class="sidebar-lang-name">Pashto</span>
+            <span class="sidebar-lang-level">Native</span>
+          </li>
+          <li class="sidebar-lang-item">
+            <span class="sidebar-lang-name">Urdu</span>
+            <span class="sidebar-lang-level">Full Proficiency</span>
+          </li>
+          <li class="sidebar-lang-item">
+            <span class="sidebar-lang-name">English</span>
+            <span class="sidebar-lang-level">Conversational</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Technical & Programming Skills -->
+      <div>
+        <div class="sidebar-heading">Programming</div>
+        <div class="sidebar-tags-flex">
+          <div class="sidebar-tag tag-advanced">C++ <span>(Advanced)</span></div>
+          <div class="sidebar-tag tag-advanced">HTML <span>(Advanced)</span></div>
+          <div class="sidebar-tag tag-advanced">CSS <span>(Advanced)</span></div>
+          <div class="sidebar-tag tag-advanced">JavaScript <span>(Advanced)</span></div>
+          <div class="sidebar-tag tag-advanced">PHP <span>(Advanced)</span></div>
+          <div class="sidebar-tag tag-advanced">MySQL <span>(Advanced)</span></div>
+          <div class="sidebar-tag">Python <span>(Beginner)</span></div>
+        </div>
+      </div>
+
+      <!-- Professional Skills -->
+      <div>
+        <div class="sidebar-heading">Skills</div>
+        <ul class="sidebar-bullets-list">
+          <li>Problem-Solving</li>
+          <li>Teamwork & Collaboration</li>
+          <li>Critical Thinking</li>
+          <li>OOP Concepts</li>
+          <li>Data Structures</li>
+        </ul>
+      </div>
+
+      <!-- Sidebar Navigation Dots -->
+      <nav class="sidebar-nav-dots" aria-label="CV Sections Navigation">
+        <a href="#summary" class="nav-dot-link active" id="dot-summary">
+          <span class="nav-dot"></span> Summary
+        </a>
+        <a href="#services" class="nav-dot-link" id="dot-services">
+          <span class="nav-dot"></span> Services Offered
+        </a>
+        <a href="#education" class="nav-dot-link" id="dot-education">
+          <span class="nav-dot"></span> Education & Record
+        </a>
+        <a href="#interests" class="nav-dot-link" id="dot-interests">
+          <span class="nav-dot"></span> Interests
+        </a>
+        <a href="#contact" class="nav-dot-link" id="dot-contact">
+          <span class="nav-dot"></span> Get in Touch
+        </a>
+      </nav>
+
+    </aside>
+
+    <!-- ==========================================
+         RIGHT MAIN CONTENT (68%)
+         ========================================== -->
+    <main class="cv-main">
+      
+      <!-- Section 1: Professional Summary -->
+      <section class="fade-up-section" id="summary">
+        <h2 class="main-section-title">Professional Summary</h2>
+        <p class="summary-paragraph">
+          Dedicated 5th-semester Bachelor of Science in Computer Science student at City University of Science and Information Technology (CUSIT), Peshawar, with an overall academic CGPA of 3.72 / 4.00. Possesses advanced competency in C++, HTML, CSS, JavaScript, PHP, MySQL, and web development fundamentals, along with foundational knowledge of Python. Seeking opportunities to apply advanced programming skills to real-world software development projects.
+        </p>
+      </section>
+
+      <!-- Section 2: Services Offered -->
+      <section class="fade-up-section" id="services">
+        <h2 class="main-section-title">What I Offer</h2>
+        
+        <div class="services-definition-grid">
+          
+          <div class="service-def-item">
+            <h3 class="service-def-title">Front-End Development</h3>
+            <p class="service-def-desc">
+              Crafting advanced, accessible, and high-performance user interfaces using semantic HTML, custom CSS, and modern JavaScript.
+            </p>
+          </div>
+
+          <div class="service-def-item">
+            <h3 class="service-def-title">Back-End Development</h3>
+            <p class="service-def-desc">
+              Building robust server-side processing using advanced PHP and managing structured data with relational MySQL databases.
+            </p>
+          </div>
+
+          <div class="service-def-item">
+            <h3 class="service-def-title">Full-Stack Web Development</h3>
+            <p class="service-def-desc">
+              Connecting front-end user layouts with back-end database operations for complete end-to-end web applications.
+            </p>
+          </div>
+
+          <div class="service-def-item">
+            <h3 class="service-def-title">Responsive Website Development</h3>
+            <p class="service-def-desc">
+              Designing flexible layouts that adapt smoothly across desktop monitors, laptops, tablets, and smartphones.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Section 3: Education & Academic Record -->
+      <section class="fade-up-section" id="education">
+        <h2 class="main-section-title">Education & Academic Record</h2>
+        
+        <div class="timeline-list">
+          
+          <!-- BS CS Entry -->
+          <div class="timeline-item">
+            <div class="timeline-dot-marker"></div>
+            <h3 class="timeline-degree-title">Bachelor of Science in Computer Science (BS CS)</h3>
+            <div class="timeline-meta-line">City University of Science & Technology (CUSIT), Peshawar &bull; Sep 2024 – Present</div>
+            <p style="font-size: 0.95rem; color: var(--text-main); font-weight: 600; margin-bottom: 0.75rem;">
+              Currently in 5th Semester &bull; Cumulative CGPA: 3.72 / 4.00
+            </p>
+
+            <!-- Semester Breakdown Cards Grid -->
+            <div class="gpa-breakdown-grid">
+              <div class="gpa-card">
+                <div class="gpa-sem-title">1st Sem</div>
+                <div class="gpa-val">SGPA: <span>3.69</span></div>
+                <div class="gpa-val" style="font-size: 0.825rem; color: var(--text-muted);">CGPA: 3.69</div>
+              </div>
+
+              <div class="gpa-card">
+                <div class="gpa-sem-title">2nd Sem</div>
+                <div class="gpa-val">SGPA: <span>3.92</span></div>
+                <div class="gpa-val" style="font-size: 0.825rem; color: var(--text-muted);">CGPA: 3.83</div>
+              </div>
+
+              <div class="gpa-card">
+                <div class="gpa-sem-title">3rd Sem</div>
+                <div class="gpa-val">SGPA: <span>3.39</span></div>
+                <div class="gpa-val" style="font-size: 0.825rem; color: var(--text-muted);">CGPA: 3.67</div>
+              </div>
+
+              <div class="gpa-card">
+                <div class="gpa-sem-title">4th Sem</div>
+                <div class="gpa-val">SGPA: <span>3.83</span></div>
+                <div class="gpa-val" style="font-size: 0.825rem; color: var(--text-muted);">CGPA: 3.72</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- DIT Entry -->
+          <div class="timeline-item">
+            <div class="timeline-dot-marker"></div>
+            <h3 class="timeline-degree-title">Diploma in Information Technology (DIT)</h3>
+            <div class="timeline-meta-line">Charsadda Institute of Technology, Mandani &bull; Jan – Dec 2024</div>
+            <div class="timeline-details-text">Marks Obtained: <strong>753 / 1000</strong></div>
+          </div>
+
+          <!-- FSc Entry -->
+          <div class="timeline-item">
+            <div class="timeline-dot-marker"></div>
+            <h3 class="timeline-degree-title">FSc (Pre-Medical)</h3>
+            <div class="timeline-meta-line">MM College Peshawar, Peshawar &bull; 2021 – 2023</div>
+            <div class="timeline-details-text">Marks Obtained: <strong>942 / 1100</strong></div>
+          </div>
+
+          <!-- Matric Entry -->
+          <div class="timeline-item">
+            <div class="timeline-dot-marker"></div>
+            <h3 class="timeline-degree-title">Matriculation (Science)</h3>
+            <div class="timeline-meta-line">Hira Model High School Mandani &bull; 2019 – 2021</div>
+            <div class="timeline-details-text">Marks Obtained: <strong>1020 / 1100</strong></div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Section 4: Interests & Extracurriculars -->
+      <section class="fade-up-section" id="interests">
+        <h2 class="main-section-title">Interests & Extracurriculars</h2>
+        <p class="interests-text">
+          Keen interest in exploring emerging technologies, solving algorithmic logic problems, playing sports (especially cricket) for teamwork and focus, and maintaining a personal commitment to continuous daily learning.
+        </p>
+      </section>
+
+      <!-- Section 5: Get In Touch -->
+      <section class="fade-up-section" id="contact">
+        <h2 class="main-section-title">Get in Touch</h2>
+        
+        <div class="contact-minimal-block">
+          <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 0.5rem;">
+            For academic inquiries, collaboration, or web development opportunities, please reach out via email or phone:
+          </p>
+
+          <a href="mailto:zabeehullah2005@gmail.com" class="contact-typographic-link">
+            ✉️ zabeehullah2005@gmail.com
+          </a>
+
+          <a href="tel:+923070509981" class="contact-typographic-link">
+            📞 +92 307 050 9981
+          </a>
+        </div>
+      </section>
+
+    </main>
+
+  </div>
+
+  <!-- ==========================================
+       PURE VANILLA JAVASCRIPT LOGIC
+       ========================================== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+      // 1. IntersectionObserver Fade-Up for Main Content Sections
+      const fadeSections = document.querySelectorAll('.fade-up-section');
+
+      const fadeObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry, index) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => {
+              entry.target.classList.add('visible');
+            }, index * 100);
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      fadeSections.forEach(section => fadeObserver.observe(section));
+
+
+      // 2. Active Section Highlight for Sidebar Nav Dots
+      const mainSections = document.querySelectorAll('main section[id]');
+      const navDotLinks = document.querySelectorAll('.nav-dot-link');
+
+      window.addEventListener('scroll', () => {
+        let currentId = '';
+        const scrollY = window.pageYOffset;
+
+        mainSections.forEach(sec => {
+          const secTop = sec.offsetTop - 150;
+          const secHeight = sec.offsetHeight;
+          if (scrollY >= secTop && scrollY < secTop + secHeight) {
+            currentId = sec.getAttribute('id');
+          }
+        });
+
+        navDotLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === `#${currentId}`) {
+            link.classList.add('active');
+          }
+        });
+      });
+
+    });
+  </script>
+</body>
+</html>
