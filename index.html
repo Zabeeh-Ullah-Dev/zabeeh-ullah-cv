@@ -14,8 +14,10 @@
     "name": "Zabeeh Ullah",
     "url": "https://zabeeh-ullah-dev.github.io/zabeeh-ullah-cv/",
     "sameAs": [
+      "https://zabeeh-ullah.netlify.app/",
       "https://github.com/Zabeeh-Ullah-Dev",
-      "https://www.linkedin.com/in/zabeeh-ullah-1b6094382/"
+      "https://www.linkedin.com/in/zabeeh-ullah-1b6094382/",
+      "https://www.facebook.com/share/1KK7cr75io/"
     ]
   }
   </script>
@@ -403,6 +405,146 @@
       line-height: 1.55;
     }
 
+    /* ==========================================================================
+       PROJECTS SECTION STYLES
+       ========================================================================== */
+    .section-lead-subtitle {
+      font-size: 1rem;
+      color: var(--text-muted);
+      margin-top: -0.5rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      position: relative;
+      padding: 1.35rem;
+      background-color: #FFFFFF;
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      background-color: var(--accent);
+      transition: width 0.25s ease;
+    }
+
+    .project-card:hover {
+      border-color: #D1D5DB;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .project-card:hover::before {
+      width: 3px;
+    }
+
+    .project-card-header {
+      margin-bottom: 0.5rem;
+    }
+
+    .project-title {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--text-main);
+      line-height: 1.35;
+      margin-bottom: 0.45rem;
+    }
+
+    .project-desc {
+      font-size: 0.925rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin-bottom: 1rem;
+      flex-grow: 1;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .project-tag {
+      font-size: 0.775rem;
+      font-weight: 500;
+      color: var(--accent);
+      background-color: rgba(74, 111, 165, 0.08);
+      border: 1px solid rgba(74, 111, 165, 0.2);
+      padding: 0.2rem 0.55rem;
+      border-radius: 3px;
+      letter-spacing: 0.02em;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 0.65rem;
+      margin-top: auto;
+      flex-wrap: wrap;
+    }
+
+    .project-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.425rem 0.8rem;
+      font-size: 0.825rem;
+      font-weight: 500;
+      font-family: var(--font-body);
+      border-radius: 4px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .project-btn--primary {
+      background-color: var(--accent);
+      color: #FFFFFF;
+      border: 1px solid var(--accent);
+    }
+
+    .project-btn--primary:hover {
+      background-color: #3b5a86;
+      border-color: #3b5a86;
+      transform: translateY(-1px);
+      box-shadow: 0 2px 6px rgba(74, 111, 165, 0.25);
+    }
+
+    .project-btn--secondary {
+      background-color: #FFFFFF;
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+    }
+
+    .project-btn--secondary:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-1px);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .project-btn svg {
+      width: 14px;
+      height: 14px;
+      flex-shrink: 0;
+    }
+
     /* Education Timeline & Semester GPA Grid */
     .timeline-list {
       position: relative;
@@ -536,6 +678,142 @@
       transform: translateY(0);
     }
 
+    /* ==========================================================================
+       SOCIAL MEDIA ICONS & ACCESSIBLE TOOLTIPS
+       ========================================================================== */
+    .social-links-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .social-links-sidebar {
+      justify-content: center;
+      margin-top: 0.85rem;
+    }
+
+    .social-links-contact {
+      margin-top: 0.5rem;
+    }
+
+    .social-btn {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #FFFFFF;
+      border: 1px solid var(--border-sidebar);
+      color: var(--text-main);
+      text-decoration: none;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      cursor: pointer;
+    }
+
+    .social-btn svg {
+      width: 20px;
+      height: 20px;
+      display: block;
+      transition: transform 0.25s ease;
+    }
+
+    /* Tooltip styles */
+    .social-btn[data-tooltip]::before {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%) translateY(4px);
+      padding: 0.35rem 0.65rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      font-family: var(--font-body);
+      color: #FFFFFF;
+      background-color: #1F2937;
+      border-radius: 6px;
+      white-space: nowrap;
+      pointer-events: none;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      z-index: 100;
+    }
+
+    .social-btn[data-tooltip]::after {
+      content: '';
+      position: absolute;
+      bottom: calc(100% + 2px);
+      left: 50%;
+      transform: translateX(-50%) translateY(4px);
+      border-width: 5px 5px 0 5px;
+      border-style: solid;
+      border-color: #1F2937 transparent transparent transparent;
+      pointer-events: none;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+      z-index: 100;
+    }
+
+    .social-btn:hover[data-tooltip]::before,
+    .social-btn:hover[data-tooltip]::after,
+    .social-btn:focus-visible[data-tooltip]::before,
+    .social-btn:focus-visible[data-tooltip]::after {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* Hover animations & Scaling */
+    .social-btn:hover,
+    .social-btn:focus-visible {
+      transform: translateY(-3px) scale(1.08);
+      outline: none;
+    }
+
+    .social-btn:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    /* Official Brand Colors on Hover */
+    .social-btn--portfolio:hover,
+    .social-btn--portfolio:focus-visible {
+      background-color: #00AD9F;
+      border-color: #00AD9F;
+      color: #FFFFFF;
+      box-shadow: 0 6px 16px rgba(0, 173, 159, 0.35);
+    }
+
+    .social-btn--github:hover,
+    .social-btn--github:focus-visible {
+      background-color: #24292F;
+      border-color: #24292F;
+      color: #FFFFFF;
+      box-shadow: 0 6px 16px rgba(36, 41, 47, 0.3);
+    }
+
+    .social-btn--linkedin:hover,
+    .social-btn--linkedin:focus-visible {
+      background-color: #0A66C2;
+      border-color: #0A66C2;
+      color: #FFFFFF;
+      box-shadow: 0 6px 16px rgba(10, 102, 194, 0.35);
+    }
+
+    .social-btn--facebook:hover,
+    .social-btn--facebook:focus-visible {
+      background-color: #1877F2;
+      border-color: #1877F2;
+      color: #FFFFFF;
+      box-shadow: 0 6px 16px rgba(24, 119, 242, 0.35);
+    }
+
     @media (max-width: 850px) {
       .cv-layout-wrapper {
         flex-direction: column;
@@ -580,6 +858,52 @@
         </div>
         <h1 class="sidebar-name">Zabeeh Ullah</h1>
         <div class="sidebar-title">BS CS Student &bull; 5th Semester</div>
+
+        <!-- Social Media Profiles -->
+        <div class="social-links-wrapper social-links-sidebar">
+          <a href="https://zabeeh-ullah.netlify.app/" 
+             target="_blank" 
+             rel="noopener noreferrer" 
+             class="social-btn social-btn--portfolio" 
+             data-tooltip="Portfolio" 
+             aria-label="Personal Portfolio Website (opens in new tab)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="2" y1="12" x2="22" y2="12"></line>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+            </svg>
+          </a>
+          <a href="https://github.com/Zabeeh-Ullah-Dev" 
+             target="_blank" 
+             rel="noopener noreferrer" 
+             class="social-btn social-btn--github" 
+             data-tooltip="GitHub" 
+             aria-label="GitHub Profile (opens in new tab)">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+            </svg>
+          </a>
+          <a href="https://www.linkedin.com/in/zabeeh-ullah-1b6094382/" 
+             target="_blank" 
+             rel="noopener noreferrer" 
+             class="social-btn social-btn--linkedin" 
+             data-tooltip="LinkedIn" 
+             aria-label="LinkedIn Profile (opens in new tab)">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+            </svg>
+          </a>
+          <a href="https://www.facebook.com/share/1KK7cr75io/" 
+             target="_blank" 
+             rel="noopener noreferrer" 
+             class="social-btn social-btn--facebook" 
+             data-tooltip="Facebook" 
+             aria-label="Facebook Profile (opens in new tab)">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+          </a>
+        </div>
       </div>
 
       <div class="sidebar-divider"></div>
@@ -656,6 +980,9 @@
         <a href="#services" class="nav-dot-link" id="dot-services">
           <span class="nav-dot"></span> Services Offered
         </a>
+        <a href="#projects" class="nav-dot-link" id="dot-projects">
+          <span class="nav-dot"></span> Featured Projects
+        </a>
         <a href="#education" class="nav-dot-link" id="dot-education">
           <span class="nav-dot"></span> Education & Record
         </a>
@@ -719,7 +1046,215 @@
         </div>
       </section>
 
-      <!-- Section 3: Education & Academic Record -->
+      <!-- Section 3: Featured Projects -->
+      <section class="fade-up-section" id="projects">
+        <h2 class="main-section-title">Featured Projects</h2>
+        <p class="section-lead-subtitle">
+          A selection of web development projects demonstrating my practical skills and learning journey.
+        </p>
+        
+        <div class="projects-grid">
+          
+          <!-- Project 1: Pakistan GK Challenge -->
+          <article class="project-card">
+            <div class="project-card-header">
+              <h3 class="project-title">Pakistan GK Challenge</h3>
+              <p class="project-desc">
+                An interactive Pakistan General Knowledge quiz featuring questions about Pakistan's history, geography, culture, personalities, and more.
+              </p>
+            </div>
+            <div class="project-tags">
+              <span class="project-tag">HTML5</span>
+              <span class="project-tag">CSS3</span>
+              <span class="project-tag">JavaScript</span>
+            </div>
+            <div class="project-links">
+              <a href="https://zabeeh-ullah-dev.github.io/Pakistan-GK-Challenge/" target="_blank" rel="noopener noreferrer" class="project-btn project-btn--primary">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                Live Demo
+              </a>
+              <a href="https://github.com/Zabeeh-Ullah-Dev/Pakistan-GK-Challenge" target="_blank" rel="noopener noreferrer" class="project-btn project-btn--secondary">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                GitHub
+              </a>
+            </div>
+          </article>
+
+          <!-- Project 2: Safar-e-Pakistan – Travel Website -->
+          <article class="project-card">
+            <div class="project-card-header">
+              <h3 class="project-title">Safar-e-Pakistan – Travel Website</h3>
+              <p class="project-desc">
+                A travel website showcasing beautiful tourist destinations and travel experiences across Pakistan.
+              </p>
+            </div>
+            <div class="project-tags">
+              <span class="project-tag">HTML5</span>
+              <span class="project-tag">CSS3</span>
+              <span class="project-tag">JavaScript</span>
+            </div>
+            <div class="project-links">
+              <a href="https://zabeeh-ullah-dev.github.io/Safar-e-Pakistan-Travel-website/" target="_blank" rel="noopener noreferrer" class="project-btn project-btn--primary">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                Live Demo
+              </a>
+              <a href="https://github.com/Zabeeh-Ullah-Dev/Safar-e-Pakistan-Travel-website" target="_blank" rel="noopener noreferrer" class="project-btn project-btn--secondary">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                GitHub
+              </a>
+            </div>
+          </article>
+
+          <!-- Project 3: Charsadda Chappal E-Commerce Website -->
+          <article class="project-card">
+            <div class="project-card-header">
+              <h3 class="project-title">Charsadda Chappal E-Commerce Website</h3>
+              <p class="project-desc">
+                An e-commerce website focused on Charsadda Chappal, presenting products and an online shopping experience.
+              </p>
+            </div>
+            <div class="project-tags">
+              <span class="project-tag">HTML5</span>
+              <span class="project-tag">CSS3</span>
+              <span class="project-tag">JavaScript</span>
+            </div>
+            <div class="project-links">
+              <a href="https://zabeeh-ullah-dev.github.io/Charsadda-Chappal-E-Commerce-Website/" target="_blank" rel="noopener noreferrer" class="project-btn project-btn--primary">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                Live Demo
+              </a>
+              <a href="https://github.com/Zabeeh-Ullah-Dev/Charsadda-Chappal-E-Commerce-Website" target="_blank" rel="noopener noreferrer" class="project-btn project-btn--secondary">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                GitHub
+              </a>
+            </div>
+          </article>
+
+          <!-- Project 4: Simple Shopping Cart -->
+          <article class="project-card">
+            <div class="project-card-header">
+              <h3 class="project-title">Simple Shopping Cart</h3>
+              <p class="project-desc">
+                A shopping cart project demonstrating product selection and basic cart functionality.
+              </p>
+            </div>
+            <div class="project-tags">
+              <span class="project-tag">HTML5</span>
+              <span class="project-tag">CSS3</span>
+              <span class="project-tag">JavaScript</span>
+            </div>
+            <div class="project-links">
+              <a href="https://zabeeh-ullah-dev.github.io/Simple-Shopping-Cart/" target="_blank" rel="noopener noreferrer" class="project-btn project-btn--primary">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                Live Demo
+              </a>
+              <a href="https://github.com/Zabeeh-Ullah-Dev/Simple-Shopping-Cart" target="_blank" rel="noopener noreferrer" class="project-btn project-btn--secondary">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                GitHub
+              </a>
+            </div>
+          </article>
+
+          <!-- Project 5: Electricity Bill Calculator -->
+          <article class="project-card">
+            <div class="project-card-header">
+              <h3 class="project-title">Electricity Bill Calculator</h3>
+              <p class="project-desc">
+                A calculator that estimates electricity bills using different electricity consumption slabs.
+              </p>
+            </div>
+            <div class="project-tags">
+              <span class="project-tag">HTML5</span>
+              <span class="project-tag">CSS3</span>
+              <span class="project-tag">JavaScript</span>
+            </div>
+            <div class="project-links">
+              <a href="https://zabeeh-ullah-dev.github.io/Electricity-Bill-Calculator/" target="_blank" rel="noopener noreferrer" class="project-btn project-btn--primary">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                Live Demo
+              </a>
+              <a href="https://github.com/Zabeeh-Ullah-Dev/Electricity-Bill-Calculator" target="_blank" rel="noopener noreferrer" class="project-btn project-btn--secondary">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                GitHub
+              </a>
+            </div>
+          </article>
+
+          <!-- Project 6: Grade Calculator -->
+          <article class="project-card">
+            <div class="project-card-header">
+              <h3 class="project-title">Grade Calculator</h3>
+              <p class="project-desc">
+                A web-based calculator that calculates student grades based on entered marks.
+              </p>
+            </div>
+            <div class="project-tags">
+              <span class="project-tag">HTML5</span>
+              <span class="project-tag">CSS3</span>
+              <span class="project-tag">JavaScript</span>
+            </div>
+            <div class="project-links">
+              <a href="https://zabeeh-ullah-dev.github.io/Grade-Calculator-Html-Css-JavaScript/" target="_blank" rel="noopener noreferrer" class="project-btn project-btn--primary">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                Live Demo
+              </a>
+              <a href="https://github.com/Zabeeh-Ullah-Dev/Grade-Calculator-Html-Css-JavaScript" target="_blank" rel="noopener noreferrer" class="project-btn project-btn--secondary">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                GitHub
+              </a>
+            </div>
+          </article>
+
+          <!-- Project 7: Tic-Tac-Toe Game -->
+          <article class="project-card">
+            <div class="project-card-header">
+              <h3 class="project-title">Tic-Tac-Toe Game</h3>
+              <p class="project-desc">
+                An interactive browser-based Tic-Tac-Toe game.
+              </p>
+            </div>
+            <div class="project-tags">
+              <span class="project-tag">HTML5</span>
+              <span class="project-tag">CSS3</span>
+              <span class="project-tag">JavaScript</span>
+            </div>
+            <div class="project-links">
+              <a href="https://zabeeh-ullah-dev.github.io/Tic-Tac-Toe-Game/" target="_blank" rel="noopener noreferrer" class="project-btn project-btn--primary">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                Live Demo
+              </a>
+              <a href="https://github.com/Zabeeh-Ullah-Dev/Tic-Tac-Toe-Game" target="_blank" rel="noopener noreferrer" class="project-btn project-btn--secondary">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                GitHub
+              </a>
+            </div>
+          </article>
+
+          <!-- Project 8: Number Guessing Game -->
+          <article class="project-card">
+            <div class="project-card-header">
+              <h3 class="project-title">Number Guessing Game</h3>
+              <p class="project-desc">
+                A number guessing game where users try to guess a randomly generated number.
+              </p>
+            </div>
+            <div class="project-tags">
+              <span class="project-tag">HTML5</span>
+              <span class="project-tag">CSS3</span>
+              <span class="project-tag">JavaScript</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Zabeeh-Ullah-Dev/Number-Guessing-Game" target="_blank" rel="noopener noreferrer" class="project-btn project-btn--secondary">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                GitHub
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- Section 4: Education & Academic Record -->
       <section class="fade-up-section" id="education">
         <h2 class="main-section-title">Education & Academic Record</h2>
         
@@ -789,7 +1324,7 @@
         </div>
       </section>
 
-      <!-- Section 4: Interests & Extracurriculars -->
+      <!-- Section 5: Interests & Extracurriculars -->
       <section class="fade-up-section" id="interests">
         <h2 class="main-section-title">Interests & Extracurriculars</h2>
         <p class="interests-text">
@@ -797,7 +1332,7 @@
         </p>
       </section>
 
-      <!-- Section 5: Get In Touch -->
+      <!-- Section 6: Get In Touch -->
       <section class="fade-up-section" id="contact">
         <h2 class="main-section-title">Get in Touch</h2>
         
@@ -813,6 +1348,56 @@
           <a href="tel:+923070509981" class="contact-typographic-link">
             📞 +92 307 050 9981
           </a>
+
+          <div style="margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid var(--border-color);">
+            <div style="font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 0.75rem;">
+              Connect Online
+            </div>
+            <div class="social-links-wrapper social-links-contact">
+              <a href="https://zabeeh-ullah.netlify.app/" 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="social-btn social-btn--portfolio" 
+                 data-tooltip="Portfolio" 
+                 aria-label="Personal Portfolio Website (opens in new tab)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="2" y1="12" x2="22" y2="12"></line>
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                </svg>
+              </a>
+              <a href="https://github.com/Zabeeh-Ullah-Dev" 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="social-btn social-btn--github" 
+                 data-tooltip="GitHub" 
+                 aria-label="GitHub Profile (opens in new tab)">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+                </svg>
+              </a>
+              <a href="https://www.linkedin.com/in/zabeeh-ullah-1b6094382/" 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="social-btn social-btn--linkedin" 
+                 data-tooltip="LinkedIn" 
+                 aria-label="LinkedIn Profile (opens in new tab)">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+                </svg>
+              </a>
+              <a href="https://www.facebook.com/share/1KK7cr75io/" 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="social-btn social-btn--facebook" 
+                 data-tooltip="Facebook" 
+                 aria-label="Facebook Profile (opens in new tab)">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
         </div>
       </section>
 
