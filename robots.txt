@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://zabeeh-ullah-dev.github.io/zabeeh-ullah-cv/sitemap.xml
