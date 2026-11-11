@@ -2,6 +2,12 @@
 
 CV and resume of Zabeeh Ullah, Software and Web Developer in Peshawar, Pakistan — skills, education, projects, and contact information.
 
+## Preview
+
+![Preview](assets/preview.png)
+
+[Live version](https://zabeeh-ullah-dev.github.io/zabeeh-ullah-cv/)
+
 ## Run it
 
 Open `index.html` in a browser. The page is a self-contained static site (inline styles and script); there is no build step.
