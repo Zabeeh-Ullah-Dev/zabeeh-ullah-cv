@@ -1,19 +1,27 @@
 # Zabeeh Ullah — CV / Resume Website
 
-CV and resume of Zabeeh Ullah, Software and Web Developer in Peshawar, Pakistan — skills, education, projects, and contact information.
+Interactive CV and resume website for **Zabeeh Ullah**, BS Computer Science student and aspiring MERN / Full-Stack Developer in Peshawar, Pakistan. Built with **React**, **Vite**, **Tailwind CSS**, and **TypeScript**.
 
 ## Preview
 
-![Preview](assets/preview.png)
+![Preview](public/assets/preview.png)
 
-[Live version](https://zabeeh-ullah-dev.github.io/zabeeh-ullah-cv/)
+## Tech Stack
 
-## Run it
+- **React 19** + **TypeScript**
+- **Tailwind CSS v4**
+- **Vite**
+- **Lucide Icons**
 
-Open `index.html` in a browser. The page is a self-contained static site (inline styles and script); there is no build step.
+## Run Locally
 
-Live version: https://zabeeh-ullah-dev.github.io/zabeeh-ullah-cv/
+```bash
+npm install
+npm run dev
+```
 
-## Note
+Build for production:
 
-There is currently no downloadable CV PDF in this repository. To offer a "Download CV" link, export a real CV PDF and add it as `assets/Zabeeh_Ullah_CV.pdf`.
+```bash
+npm run build
+```
