@@ -1,0 +1,16 @@
+{
+  "name": "zabeeh-ullah-cv",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "CV and resume website for Zabeeh Ullah, Software Engineer & Web Developer.",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js",
+    "build": "node --check server.js",
+    "lint": "node --check server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
