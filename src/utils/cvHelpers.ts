@@ -60,3 +60,17 @@ export function isAtsResumeMode(search: string): boolean {
   const params = new URLSearchParams(search);
   return params.get('ats-resume') === '1';
 }
+
+export function resolveAssetUrl(
+  assetPath: string,
+  baseUrl?: string,
+): string {
+  const resolvedBase =
+    baseUrl ??
+    ((import.meta as { env?: { BASE_URL?: string } }).env?.BASE_URL ?? '/');
+  const normalizedBase = resolvedBase.endsWith('/')
+    ? resolvedBase
+    : `${resolvedBase}/`;
+  const normalizedPath = assetPath.replace(/^\/+/, '');
+  return `${normalizedBase}${normalizedPath}`;
+}

@@ -7,6 +7,7 @@ import {
   getActiveSectionId,
   isAtsResumeMode,
   isOgPreviewMode,
+  resolveAssetUrl,
 } from './cvHelpers';
 import {
   CERTIFICATIONS,
@@ -60,4 +61,17 @@ test('query mode helpers detect og-preview and ats-resume parameters', () => {
   assert.equal(isAtsResumeMode('?ats-resume=1'), true);
   assert.equal(isAtsResumeMode('?ats-resume=0'), false);
   assert.equal(isAtsResumeMode(''), false);
+});
+
+test('resolveAssetUrl prefixes public assets cleanly for root, relative, and GitHub Pages bases', () => {
+  assert.equal(resolveAssetUrl('assets/profile.jpg', '/'), '/assets/profile.jpg');
+  assert.equal(resolveAssetUrl('/assets/profile.jpg', './'), './assets/profile.jpg');
+  assert.equal(
+    resolveAssetUrl('assets/Zabeeh-Ullah-ATS-Resume.pdf', '/zabeeh-ullah-cv/'),
+    '/zabeeh-ullah-cv/assets/Zabeeh-Ullah-ATS-Resume.pdf',
+  );
+  assert.equal(
+    resolveAssetUrl('/assets/preview.png', '/zabeeh-ullah-cv'),
+    '/zabeeh-ullah-cv/assets/preview.png',
+  );
 });

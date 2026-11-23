@@ -1,3 +1,5 @@
+import { resolveAssetUrl } from '../utils/cvHelpers';
+
 export interface SocialLinkItem {
   id: 'portfolio' | 'github' | 'linkedin' | 'facebook';
   label: string;
@@ -74,8 +76,8 @@ export const PROFILE = {
   phoneHref: 'tel:+923070509981',
   email: 'zabeehullah2005@gmail.com',
   emailHref: 'mailto:zabeehullah2005@gmail.com',
-  photoUrl: '/assets/profile.jpg',
-  atsResumePdfUrl: '/assets/Zabeeh-Ullah-ATS-Resume.pdf',
+  photoUrl: resolveAssetUrl('assets/profile.jpg'),
+  atsResumePdfUrl: resolveAssetUrl('assets/Zabeeh-Ullah-ATS-Resume.pdf'),
   githubProfileUrl: 'https://github.com/Zabeeh-Ullah-Dev',
   linkedinProfileUrl: 'https://www.linkedin.com/in/zabeeh-ullah-1b6094382/',
   portfolioUrl: 'https://zabeeh-ullah.netlify.app/',
