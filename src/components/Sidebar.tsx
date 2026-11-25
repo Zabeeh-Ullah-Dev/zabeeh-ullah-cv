@@ -35,10 +35,14 @@ export function Sidebar({ activeSectionId }: SidebarProps) {
         <div className="mx-auto mb-5 h-[175px] w-[140px] overflow-hidden rounded-xl border-2 border-steel-blue bg-warm-white p-1">
           {imgError ? (
             <div
-              className="flex h-full w-full items-center justify-center rounded-lg bg-steel-blue font-heading text-3xl font-bold text-white"
+              className="flex h-full w-full items-center justify-center rounded-lg bg-deep-slate p-3"
               aria-label={PROFILE.name}
             >
-              ZU
+              <img
+                src={PROFILE.logoUrl}
+                alt={`${PROFILE.name} logo`}
+                className="max-h-full max-w-full object-contain"
+              />
             </div>
           ) : (
             <img

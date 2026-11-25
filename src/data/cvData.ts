@@ -77,6 +77,7 @@ export const PROFILE = {
   email: 'zabeehullah2005@gmail.com',
   emailHref: 'mailto:zabeehullah2005@gmail.com',
   photoUrl: resolveAssetUrl('assets/profile.jpg'),
+  logoUrl: resolveAssetUrl('assets/aistudio/Short_logo_for_portfolio_1052bd6a.png'),
   atsResumePdfUrl: resolveAssetUrl('assets/Zabeeh-Ullah-ATS-Resume.pdf'),
   githubProfileUrl: 'https://github.com/Zabeeh-Ullah-Dev',
   linkedinProfileUrl: 'https://www.linkedin.com/in/zabeeh-ullah-1b6094382/',
